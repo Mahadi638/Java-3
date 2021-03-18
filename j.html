@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital clock</title>
+    <link rel="shortcut icon" href="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.megastore.com.mt%2Fen_MT%2Fp%2FTJALLA-Wall-clock%252C-28-cm%2F141996&psig=AOvVaw0QEhxhBgAVONYxXYVNsYp4&ust=1616134540895000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCOjJub-Yue8CFQAAAAAdAAAAABAJ"
+        type="image/x-icon">
+    <style>
+        .warraper {
+            background: rgb(83, 197, 250);
+            height: 170px;
+            width: 250px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 30px;
+        }
+        
+        .warraper h1 {
+            position: absolute;
+            top: -40%;
+            left: 10%;
+            color: white;
+        }
+        
+        .warraper h2 {
+            position: absolute;
+            width: 600px;
+            top: -100%;
+            left: -80%;
+            padding: 10px;
+            color: white;
+            background: rgb(79, 198, 228);
+        }
+        
+        body {
+            background: rgb(114, 110, 110);
+        }
+        
+        .times {
+            background: linear-gradient(135deg, #14ffe9, #ffeb3b, #ff00e0);
+            width: 240px;
+            height: 160px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: animated 1.5s linear infinite;
+            border-radius: 30px;
+        }
+        
+        #time {
+            background: rgb(69, 107, 231);
+            color: white;
+            width: 80%;
+            height: 80%;
+            position: absolute;
+            opacity: 0.8;
+            text-align: center;
+            font-size: 30px;
+            padding: 0px 5px;
+            background-clip: text;
+            top: 50%;
+            left: 50%;
+            line-height: 140px;
+            transform: translate(-50%, -50%);
+            border-radius: 30px;
+        }
+        
+        @keyframes animated {
+            100% {
+                filter: hue-rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="warraper">
+        <h1>Digital clock</h1>
+        <h2>▁ ▂ ▄ ▅ ▆ ▇ █ 🎀 Mahadi Hasan 🎀 █ ▇ ▆ ▅ ▄ ▂ ▁
+        </h2>
+        <div class="times">
+            <div id="time"></div>
+        </div>
+        <span></span>
+        <span></span>
+    </div>
+</body>
+
+</html>
+<script>
+    setInterval(() => {
+        var time = document.querySelector('#time');
+        var date = new Date();
+
+        var hours = date.getHours();
+        var minutes = date.getMinutes();
+        var seconds = date.getSeconds();
+        var day_night = "AM";
+        if (hours > 12) {
+            hours = hours - 12;
+            day_night = 'pm';
+
+        }
+
+        if (hours < 10) {
+            hours = '0' + hours;
+        }
+        if (minutes < 10) {
+            minutes = '0' + minutes;
+        }
+
+        if (seconds < 10) {
+            seconds = '0' + seconds;
+        }
+        time.textContent = hours + ":" + minutes + ":" + seconds + " " + day_night;
+    });
+</script>
